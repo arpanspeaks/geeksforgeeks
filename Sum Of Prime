@@ -1,0 +1,41 @@
+//https://practice.geeksforgeeks.org/problems/sum-of-prime/0
+
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, i, p, c=0, sum=0, k=0;
+        cin >> n;
+        bool prime[n+1]; 
+        int m[n/4];
+        memset(prime, true, sizeof(prime));
+        for (i=2; i*i<=n; i++) {
+            if (prime[i]==true) {
+                for (p=i*i; p<=n; p+=i) {
+                    prime[p] = false;
+                }
+            }
+        }
+        for (i=2; i<=n; i++)
+            if (prime[i])
+                m[k++]=i;
+        int low=0, high=k-1;
+        bool flag=0;
+        while (low<=high) {
+            sum=m[low]+m[high];
+            if (sum==n) {
+                flag=1;
+                break;
+            }
+            else if (sum>n) high--;
+            else low++;
+        }
+        if(flag)
+            cout << m[low] << " " << m[high] << endl;
+        else
+            cout << -1 << endl;
+    }
+    return 0;
+}
