@@ -1,0 +1,31 @@
+// https://practice.geeksforgeeks.org/problems/return-two-prime-numbers/0
+
+#include<bits/stdc++.h>
+using namespace std;
+bool prime(int n) {
+    int fact=2, x=n;
+    while (fact*fact <= n) {
+        if(n%fact == 0) {
+            n /= fact;
+        }
+        else
+        fact++;
+    }
+    if (x == n) return true;
+    else return false;
+}
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        for(int i=2; i<=n; i++) {
+            if(prime(i) && prime(n-i)) {
+                cout << i << " " << (n-i) << endl;
+                break;
+            }
+        }
+    }
+    return 0;
+}
