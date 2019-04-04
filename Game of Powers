@@ -1,0 +1,17 @@
+// https://practice.geeksforgeeks.org/problems/game-of-powers/0
+
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+	cin >> t;
+	while(t--) {
+	    long int x;
+	    string str;
+	    cin >> str >> x;
+	    int z = (int(str[str.length()-2])-'0') * (x%10);
+	    z = z%10; 
+	    cout << z << '1' << endl;
+	}
+	return 0;
+}
