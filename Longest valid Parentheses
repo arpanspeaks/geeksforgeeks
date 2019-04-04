@@ -1,0 +1,25 @@
+// https://practice.geeksforgeeks.org/problems/longest-valid-parentheses/0
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+int main() {
+	ll t;
+	cin >> t;
+	while (t--) {
+	    string s;
+	    cin >> s;
+	    ll res=0;
+	    stack<ll>st;
+	    st.push(-1);
+	    for(ll i=0; i<s.length(); i++) {
+	        if (s[i]=='(') st.push(i);
+	        else st.pop();
+	        if (!st.empty()) res=max(res, i-st.top());
+	        else st.push(i);
+	    }
+	    cout << res << endl;
+	}
+	return 0;
+}
