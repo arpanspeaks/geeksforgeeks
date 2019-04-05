@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        int no = log2(n)+1;
+        if (no & 1) {
+            n=n^(1<<(no/2));
+        }
+        else {
+            n=n^(1<<(no/2));
+            n=n^(1<<((no/2)-1));
+        }
+        cout << n << endl;
+    }
+    return 0;
+}
